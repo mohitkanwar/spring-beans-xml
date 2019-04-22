@@ -5,12 +5,18 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
         standard();
-        springSetterExample();
+        springSetterExample(applicationContext);
+        springConstructorExample(applicationContext);
     }
 
-    private static void springSetterExample() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+    private static void springConstructorExample(ApplicationContext applicationContext) {
+        Greeting secondGreet = applicationContext.getBean("second", Greeting.class);
+        System.out.println(secondGreet.getMessage());
+    }
+
+    private static void springSetterExample(ApplicationContext applicationContext) {
         Greeting firstGreet = applicationContext.getBean("first", Greeting.class);
         System.out.println(firstGreet.getMessage());
     }

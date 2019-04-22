@@ -6,5 +6,7 @@
         <property name="message" value="This is my first bean" />
     </bean>
 
-
+    <bean id="second" class="com.mk.spring.tutorial.Greeting">
+        <constructor-arg value="This is passed in constructor"/>
+    </bean>
 </beans>
