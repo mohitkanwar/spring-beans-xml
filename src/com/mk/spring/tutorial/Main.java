@@ -6,25 +6,20 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
-        standard();
-        springSetterExample(applicationContext);
-        springConstructorExample(applicationContext);
+        firstCall(applicationContext);
+        secondCall(applicationContext);
     }
 
-    private static void springConstructorExample(ApplicationContext applicationContext) {
-        Greeting secondGreet = applicationContext.getBean("second", Greeting.class);
-        System.out.println(secondGreet.getMessage());
-    }
-
-    private static void springSetterExample(ApplicationContext applicationContext) {
+    private static void firstCall(ApplicationContext applicationContext) {
         Greeting firstGreet = applicationContext.getBean("first", Greeting.class);
-        System.out.println(firstGreet.getMessage());
+        System.out.println("old message : "+ firstGreet.getMessage());
+        firstGreet.setMessage("This is a new message that I have set!");
+        System.out.println("Message changed");
     }
 
-    private static void standard() {
-        // This is the standard way of creating objects in Java
-        Greeting greeting = new Greeting();
-        greeting.setMessage("Hello World!");
-        System.out.println(greeting.getMessage());
+    private static void secondCall(ApplicationContext applicationContext) {
+        Greeting firstGreet = applicationContext.getBean("first", Greeting.class);
+        System.out.println("Message in second call : "+firstGreet.getMessage());
     }
+
 }

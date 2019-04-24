@@ -2,11 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="first" class="com.mk.spring.tutorial.Greeting" >
-        <property name="message" value="This is my first bean" />
-    </bean>
 
-    <bean id="second" class="com.mk.spring.tutorial.Greeting">
-        <constructor-arg value="This is passed in constructor"/>
+    <bean id="first" class="com.mk.spring.tutorial.Greeting" scope="singleton">
+        <constructor-arg value="I am singleton"/>
     </bean>
 </beans>

@@ -5,7 +5,6 @@ public class Greeting {
     public Greeting() {
     }
     public Greeting(String message) {
-        System.out.println("Constructor called!!");
         this.message = message;
     }
 
@@ -14,7 +13,6 @@ public class Greeting {
     }
 
     public void setMessage(String message) {
-        System.out.println("Setter Called");
         this.message = message;
     }
 }
