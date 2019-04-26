@@ -8,10 +8,9 @@ public class AnnotationBasedConfig {
       return new Greeting();
    }
 
-   @Bean(name = "second")
-   public Greeting secondGreeting(){
-      Greeting greeting = new Greeting();
-      greeting.setMessage("This is second greeting!");
-      return greeting;
+
+   @Bean(name = "DefaultMessage")
+   public String defaultMessage(){
+      return "This is my default message!!";
    }
 }

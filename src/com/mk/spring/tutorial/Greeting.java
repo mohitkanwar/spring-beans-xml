@@ -1,14 +1,14 @@
 package com.mk.spring.tutorial;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 public class Greeting {
+    @Autowired
+    @Qualifier("DefaultMessage")
     private String message;
-    public Greeting() {
-        this.message = "Invoked by Default Constructor";
-    }
-    public Greeting(String message) {
-        this.message = message;
-    }
+
 
     public String getMessage() {
         return message;
