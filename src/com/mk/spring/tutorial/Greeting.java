@@ -1,5 +1,7 @@
 package com.mk.spring.tutorial;
 
+import org.springframework.stereotype.Component;
+
 public class Greeting {
     private String message;
     public Greeting() {
