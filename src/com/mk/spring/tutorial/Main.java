@@ -1,6 +1,8 @@
 package com.mk.spring.tutorial;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 public class Main {
@@ -12,13 +14,10 @@ public class Main {
     }
 
     private  void greet() {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AnnotationBasedConfig.class);
-
-        Greeting greeting = applicationContext.getBean("first",Greeting.class);
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+        Greeting greeting = applicationContext.getBean(Greeting.class);
         System.out.println(greeting.getMessage());
-        greeting.setMessage("Message changed");
-        Greeting secondGreeting =  applicationContext.getBean("first",Greeting.class);
-        System.out.println(secondGreeting.getMessage());
+
     }
 
 
